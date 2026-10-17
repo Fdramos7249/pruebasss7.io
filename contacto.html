@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Datos de contacto y formulario de consultas de la I.E. 42255.">
+  <title>I.E. 42255 Santa Teresita del Niño Jesús</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <a class="enlace-salto" href="#contenido">Saltar al contenido principal</a>
+  <header class="cabecera">
+    <div class="marca">
+      <img src="img/insignia.jpg" alt="Insignia de la I.E. 42255 Santa Teresita del Niño Jesús" width="64" height="64">
+      <p class="nombre-sitio">I.E. 42255 <span>Santa Teresita del Niño Jesús</span></p>
+    </div>
+    <nav aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="institucion.html">Institución</a></li>
+        <li><a href="propuesta.html">Propuesta educativa</a></li>
+        <li><a href="actividades.html">Actividades</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="contenido">
+    <section class="titulo-pagina">
+      <div class="contenedor">
+        <h1>Contacto</h1>
+        <p>Comuníquese con la institución para realizar consultas o solicitar información.</p>
+      </div>
+    </section>
+
+    <div class="contenedor dos-columnas">
+      <section aria-labelledby="titulo-datos-contacto">
+        <h2 id="titulo-datos-contacto">Datos de contacto</h2>
+        <dl>
+          <dt><strong>Dirección</strong></dt>
+          <dd>Avenida Alexander von Humboldt s/n, Mz. H, Lote 01, Asociación de Vivienda Alfonso Ugarte, sector 3, II y III Etapa, distrito Coronel Gregorio Albarracín Lanchipa, Tacna, Perú.</dd>
+          <dt><strong>Código modular</strong></dt>
+          <dd>808455</dd>
+          <dt><strong>Director</strong></dt>
+          <dd>Prof. Víctor Manuel Ramos Copare</dd>
+          <dt><strong>Subdirector</strong></dt>
+          <dd>Prof. Julián Miguel Laque Velásquez</dd>
+          <dt><strong>Correo electrónico institucional</strong></dt>
+          <dd><a href="mailto:ie42255santateresita@ugeltacna.gob.pe">ie42255santateresita@ugeltacna.gob.pe</a></dd>
+          <dt><strong>Teléfonos</strong></dt>
+          <dd><a href="tel:+51950022286">950 022 286</a> / <a href="tel:+5152579579">(052) 579579</a></dd>
+          <dt><strong>Horario de atención</strong></dt>
+          <dd>Lunes a viernes, de 8:00 a 13:00 horas; de 14:00 a 16:30 horas para mesa de partes virtual y presencial.</dd>
+          <dt><strong>Comunidad virtual</strong></dt>
+          <dd><a href="https://www.facebook.com/JECSANTATERESITATACNA">JEC Santa Teresita del Niño Jesús - Tacna</a></dd>
+        </dl>
+        <section class="orientacion-matricula" aria-labelledby="titulo-matricula">
+          <h3 id="titulo-matricula">Matrícula y orientación</h3>
+          <p>La institución brinda continuidad formativa en Inicial, Primaria y Secundaria bajo el modelo de Jornada Escolar Completa. El nivel Inicial atiende a niñas y niños de 3, 4 y 5 años; Primaria comprende de 1.º a 6.º grado; y Secundaria se desarrolla en turno mañana.</p>
+          <p>Para recibir orientación sobre el proceso de matrícula vigente, comuníquese por los canales institucionales durante el horario de atención.</p>
+        </section>
+      </section>
+
+      <section aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Formulario de consulta</h2>
+        <form class="formulario" action="mailto:ie42255santateresita@ugeltacna.gob.pe" method="post" enctype="text/plain">
+          <div class="campo">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required minlength="3" maxlength="60" pattern="[A-Za-zÁÉÍÓÚÜáéíóúüÑñ ]{3,60}" title="Ingrese solo letras y espacios, entre 3 y 60 caracteres." autocomplete="name">
+          </div>
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" required autocomplete="email">
+          </div>
+          <div class="campo">
+            <label for="motivo">Motivo de la consulta</label>
+            <select id="motivo" name="motivo" required>
+              <option value="">Seleccione una opción</option>
+              <option value="informacion">Información general</option>
+              <option value="matricula">Proceso de matrícula</option>
+              <option value="academico">Consulta académica</option>
+              <option value="otro">Otro motivo</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required minlength="10" maxlength="500"></textarea>
+          </div>
+          <button type="submit">Enviar consulta</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="pie">
+    <div class="pie-contenido">
+      <p>I.E. 42255 Santa Teresita del Niño Jesús</p>
+      <address>Avenida Alexander von Humboldt s/n, Mz. H, Lote 01, Asociación de Vivienda Alfonso Ugarte, sector 3, Coronel Gregorio Albarracín Lanchipa, Tacna, Perú</address>
+      <p><small>Sitio institucional con fines académicos.</small></p>
+    </div>
+  </footer>
+</body>
+</html>

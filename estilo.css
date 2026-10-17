@@ -1,0 +1,249 @@
+/* Sistema de diseño institucional - I.E. 42255 Santa Teresita del Niño Jesús */
+:root {
+  --color-rojo-principal: #D32F2F;
+  --color-granate: #6B1D2F;
+  --color-dorado: #F4D03F;
+  --color-gris-plomo: #7F8C8D;
+  --color-blanco: #FFFFFF;
+  --color-negro-suave: #222222;
+  --fuente-base: system-ui, -apple-system, "Segoe UI", Roboto, "Open Sans", Arial, sans-serif;
+  --radio: 0.5rem;
+  --espacio: 1.5rem;
+}
+
+/* Reinicio basico y modelo de caja */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { font-size: 100%; }
+body {
+  display: flex; flex-direction: column; min-height: 100vh;
+  font-family: var(--fuente-base); line-height: 1.6;
+  color: var(--color-negro-suave); background: var(--color-blanco);
+}
+main { flex: 1; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-rojo-principal); }
+a:hover { color: var(--color-granate); }
+:focus { outline: 3px solid var(--color-granate); outline-offset: 3px; }
+
+/* Tipografia */
+h1, h2, h3 { line-height: 1.25; color: var(--color-granate); }
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.4rem; margin-bottom: 1rem; padding-bottom: 0.4rem; border-bottom: 3px solid var(--color-dorado); }
+h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+p, dl, figure { margin-bottom: 1rem; }
+ul, ol { margin: 0 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+figcaption { margin-top: 0.5rem; font-size: 0.9rem; }
+time { display: block; margin-bottom: 0.75rem; font-weight: 600; color: var(--color-granate); }
+
+/* Enlace de salto para teclado */
+.enlace-salto {
+  position: absolute; left: -100vw; top: 0; z-index: 100; padding: 0.75rem 1rem;
+  background: var(--color-dorado); color: var(--color-negro-suave); font-weight: 700;
+}
+.enlace-salto:focus { left: 0; }
+
+/* Cabecera y navegacion (Flexbox) */
+.cabecera { background: var(--color-blanco); border-bottom: 4px solid var(--color-granate); }
+.marca { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1rem; }
+.marca img { width: 4rem; height: auto; }
+.nombre-sitio { margin: 0; font-weight: 700; line-height: 1.2; color: var(--color-granate); }
+.nombre-sitio span { display: block; font-size: 0.95rem; font-weight: 600; color: var(--color-negro-suave); }
+.menu { display: flex; flex-direction: column; margin: 0; list-style: none; background: var(--color-rojo-principal); }
+.menu li { margin: 0; }
+.menu a {
+  display: block; padding: 0.85rem 1rem; text-align: center; font-weight: 600; text-decoration: none;
+  color: var(--color-blanco); border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+.menu a:hover, .menu a:focus, .menu a[aria-current="page"] { background: var(--color-dorado); color: var(--color-negro-suave); }
+.menu a:focus { outline: 3px solid var(--color-negro-suave); outline-offset: -6px; }
+
+/* Hero de bienvenida y titulos de pagina */
+.hero-institucional {
+  position: relative; display: flex; align-items: flex-end; overflow: hidden;
+  min-height: 37.5rem; height: 80vh; max-height: 45rem;
+  color: var(--color-blanco);
+  background-image: url("img/fachada-entrada-colegio.jpg");
+  background-position: center; background-size: cover;
+}
+.hero-institucional::before {
+  content: ""; position: absolute; inset: 42% 0 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+.hero-institucional__contenido {
+  position: relative; z-index: 1; width: 100%; max-width: 72rem; margin: 0 auto;
+  padding: 3rem 1rem 3.5rem;
+}
+.hero-institucional__subtitulo {
+  margin: 0 0 0.6rem; color: var(--color-rojo-principal); font-size: 0.82rem;
+  font-weight: 800; letter-spacing: 0.12em;
+}
+.hero-institucional h1 {
+  max-width: 47rem; margin: 0; color: var(--color-blanco);
+  font-size: clamp(2.15rem, 5vw, 3rem); font-weight: 800;
+}
+.hero-institucional__descripcion {
+  max-width: 43rem; margin: 0.9rem 0 0; color: var(--color-blanco); font-size: 1.1rem;
+}
+.titulo-pagina { background: var(--color-granate); border-bottom: 4px solid var(--color-dorado); }
+.titulo-pagina h1, .titulo-pagina p { color: var(--color-blanco); }
+.titulo-pagina p { margin: 0.5rem 0 0; }
+
+/* Contenedores y secciones */
+.contenedor { width: 100%; max-width: 72rem; margin: 0 auto; padding: 2rem 1rem; }
+.seccion-alterna { background: var(--color-gris-plomo); }
+.seccion-alterna h2 { color: var(--color-negro-suave); }
+.columna-principal section { margin-bottom: 2rem; }
+.dos-columnas, .disposicion-aside { display: grid; gap: 2rem; grid-template-columns: 1fr; align-items: start; }
+
+/* Tarjeta institucional reutilizable */
+.tarjeta-institucional, .datos-rapidos {
+  padding: 1.5rem; background: var(--color-blanco);
+  border: 1px solid rgba(127, 140, 141, 0.45); border-left: 0.5rem solid var(--color-dorado);
+  border-radius: var(--radio); box-shadow: 0 0.45rem 1.1rem rgba(34, 34, 34, 0.1);
+}
+.tarjeta-institucional h3, .datos-rapidos h2 {
+  position: relative; margin-bottom: 1.1rem; padding-bottom: 0.75rem;
+  color: var(--color-granate); border-bottom: 0;
+}
+.tarjeta-institucional h3::after, .datos-rapidos h2::after {
+  content: ""; position: absolute; bottom: 0; left: 0; width: 4rem; height: 0.2rem;
+  background: var(--color-dorado);
+}
+.tarjeta-institucional p:last-child { margin-bottom: 0; }
+.tarjeta-institucional h4 {
+  margin: 1.25rem 0 0.65rem; color: var(--color-granate); font-size: 1rem;
+}
+.datos-rapidos dt { font-weight: 700; color: var(--color-granate); }
+.datos-rapidos dd { margin: 0 0 0.75rem; }
+
+/* Mision, vision, valores y niveles */
+.mision-vision-contenido, .tarjetas-mision-vision, .valores-niveles-contenido {
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+}
+.mision-vision-imagen { margin: 0; }
+.mision-vision-imagen img {
+  width: 100%; min-height: 18rem; object-fit: cover;
+  border: 3px solid var(--color-granate); border-radius: var(--radio);
+}
+.mision-vision-imagen figcaption { margin: 0.7rem 0 0; color: var(--color-gris-plomo); }
+.formacion-integral { margin-top: 3rem; }
+.etiqueta-formacion {
+  margin: 0 0 0.35rem; color: var(--color-rojo-principal); font-size: 0.78rem;
+  font-weight: 800; letter-spacing: 0.14em;
+}
+.lista-valores, .lista-convivencia, .lista-niveles { margin-bottom: 0; }
+.orientacion-matricula {
+  margin-top: 1.5rem; padding-top: 1.25rem; border-top: 2px solid var(--color-dorado);
+}
+.orientacion-matricula h3 { color: var(--color-granate); }
+
+/* Tarjetas y galeria (CSS Grid) */
+.tarjetas, .galeria { display: grid; gap: var(--espacio); grid-template-columns: 1fr; }
+.tarjeta {
+  display: flex; flex-direction: column; padding: 1.25rem;
+  background: var(--color-blanco); border-top: 5px solid var(--color-granate); border-radius: var(--radio);
+}
+.tarjeta .boton { margin-top: auto; align-self: flex-start; }
+.galeria img, .dos-columnas figure img, .noticia img { width: 100%; border-radius: var(--radio); border: 3px solid var(--color-granate); }
+.noticia { margin-bottom: 2rem; padding: 1.25rem; border: 2px solid var(--color-granate); border-radius: var(--radio); }
+
+/* Talleres formativos */
+.seccion-talleres { background: var(--color-granate); }
+.seccion-talleres h2 {
+  position: relative; margin-bottom: 2rem; padding-bottom: 0.8rem;
+  color: var(--color-blanco); border-bottom: 0;
+}
+.seccion-talleres h2::after {
+  content: ""; position: absolute; bottom: 0; left: 0; width: 4.5rem; height: 0.22rem;
+  background: var(--color-dorado);
+}
+.tarjetas-talleres { display: grid; gap: var(--espacio); grid-template-columns: 1fr; }
+.tarjeta-taller {
+  padding: 1.4rem; background: var(--color-blanco);
+  border: 1px solid rgba(34, 34, 34, 0.15); border-top: 0.45rem solid var(--color-dorado);
+  border-radius: var(--radio); box-shadow: 0 0.45rem 1.15rem rgba(0, 0, 0, 0.24);
+}
+.tarjeta-taller h3 { color: var(--color-granate); }
+.tarjeta-taller p { margin: 0; color: var(--color-negro-suave); }
+
+/* Botones */
+.boton, button {
+  display: inline-block; padding: 0.75rem 1.5rem; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
+  color: var(--color-blanco); background: var(--color-rojo-principal);
+  border: 2px solid var(--color-rojo-principal); border-radius: var(--radio);
+}
+.boton:hover, button:hover { background: var(--color-dorado); border-color: var(--color-dorado); color: var(--color-negro-suave); }
+
+/* Formulario */
+.formulario { padding: 1.25rem; border: 2px solid var(--color-granate); border-radius: var(--radio); }
+.campo { margin-bottom: 1.25rem; }
+label { display: block; margin-bottom: 0.35rem; font-weight: 700; }
+input, select, textarea {
+  width: 100%; padding: 0.7rem; font: inherit; color: var(--color-negro-suave); background: var(--color-blanco);
+  border: 2px solid var(--color-granate); border-radius: var(--radio);
+}
+textarea { min-height: 9rem; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 3px solid var(--color-dorado); outline-offset: 0; border-color: var(--color-negro-suave); }
+
+/* Pie de pagina (Flexbox) */
+.pie { background: var(--color-granate); color: var(--color-blanco); border-top: 4px solid var(--color-dorado); }
+.pie-contenido {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  max-width: 72rem; margin: 0 auto; padding: 1.5rem 1rem; text-align: center;
+}
+.pie p, .pie address { margin: 0; font-style: normal; }
+
+/* Moviles */
+@media (max-width: 39.99em) {
+  .hero-institucional { min-height: 32rem; max-height: none; }
+  .hero-institucional::before { inset: 34% 0 0; }
+  .hero-institucional__contenido { padding: 2rem 1rem 2.5rem; }
+  .hero-institucional h1 { font-size: 2.15rem; }
+  .hero-institucional__descripcion { font-size: 1rem; }
+}
+
+/* Tabletas */
+@media (min-width: 40em) {
+  .tarjetas, .tarjetas-talleres { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 48em) {
+  html { font-size: 106.25%; }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.6rem; }
+  .menu { flex-direction: row; justify-content: center; }
+  .menu a { padding: 1rem 1.75rem; border-top: 0; }
+  .dos-columnas { grid-template-columns: 1fr 1fr; }
+  /* Mision y vision: imagen a ancho completo y tarjetas en dos columnas debajo */
+  .mision-vision-imagen img { height: clamp(20rem, 34vw, 28rem); }
+  .tarjetas-mision-vision { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Valores, niveles y normas: transicion para pantallas medianas */
+  .valores-niveles-contenido { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .valores-niveles-contenido > .tarjeta-normas { grid-column: 1 / -1; }
+  .tarjeta-normas .lista-convivencia { columns: 2; column-gap: 2rem; }
+  .tarjeta-normas .lista-convivencia li { break-inside: avoid; }
+  .galeria { grid-template-columns: repeat(2, 1fr); }
+  .noticia { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+  .noticia img { margin-bottom: 0; }
+  .pie-contenido { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+
+/* Escritorio */
+@media (min-width: 64em) {
+  html { font-size: 112.5%; }
+  h1 { font-size: 2.75rem; }
+  .tarjetas, .tarjetas-talleres { grid-template-columns: repeat(4, 1fr); }
+  /* Ancho completo para las secciones de contenido principal */
+  .disposicion-aside { grid-template-columns: 2fr 1fr; row-gap: 3rem; }
+  .columna-principal { display: contents; }
+  .columna-principal section { margin-bottom: 0; }
+  .formacion-integral { margin-top: 0; }
+  .bloque-resena { grid-column: 1; grid-row: 1; }
+  .datos-rapidos { grid-column: 2; grid-row: 1; }
+  .bloque-mision-vision, .formacion-integral { grid-column: 1 / -1; }
+  /* Valores, niveles y normas: tres columnas iguales */
+  .valores-niveles-contenido { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .valores-niveles-contenido > .tarjeta-normas { grid-column: auto; }
+  .tarjeta-normas .lista-convivencia { columns: 1; }
+}
